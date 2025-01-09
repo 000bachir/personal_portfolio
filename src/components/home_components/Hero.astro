@@ -1,0 +1,293 @@
+---
+/**
+ * TODO : add responsive before push to production
+ */
+---
+
+<script>
+  // Selects the element with class "text-effect" from the DOM, casting it to an HTMLSpanElement if found, or null if not found.
+  const wordEffect = document.querySelector(
+    ".text-effect",
+  ) as HTMLSpanElement | null;
+
+  // Defines a string containing all uppercase letters of the alphabet.
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+  // Stores the ID of a scheduled animation frame, initially set to null.
+  let animationFrame: number | null = null;
+
+  // Checks if the "wordEffect" element was found.
+  if (wordEffect) {
+    // Adds a "mouseover" event listener to the element.
+    wordEffect.addEventListener("mouseover", (event) => {
+      // Ensures the event target is an HTMLElement before proceeding.
+      if (!(event.target instanceof HTMLElement)) return;
+
+      // Stores a reference to the element that triggered the event.
+      const target = event.target as HTMLElement;
+
+      // Retrieves the original text content from the element's "data-value" attribute or defaults to an empty string.
+      let originalText = target.dataset.value || "";
+
+      // Initializes a counter for the animation loop.
+      let iteration = 0;
+
+      // Cancels any previously running animation if present.
+      if (animationFrame !== null) {
+        cancelAnimationFrame(animationFrame);
+      }
+
+      // Defines the animation function that will be called recursively.
+      const animate = () => {
+        // Splits the original text into an array of individual characters.
+        const textArray = originalText.split("");
+
+        // Iterates through each character and replaces it with a random letter from "letters" if the index is less than the "iteration" counter.
+        const updatedText = textArray
+          .map((letter: string, index: number) => {
+            if (index < iteration) {
+              return originalText[index]; // Keep the original character for revealed parts
+            }
+            return letters[Math.floor(Math.random() * letters.length)]; // Replace with random letter
+          })
+          .join("");
+
+        // Updates the element's inner text with the modified string.
+        target.innerText = updatedText;
+
+        // Increments the counter by a fraction (1/3) for a gradual reveal effect.
+        iteration += 1 / 3;
+
+        // Base case: stop the animation if all characters have been revealed.
+        if (iteration >= originalText.length) {
+          target.innerText = originalText; // Reset to original text
+          animationFrame = null; // Clear animation frame ID
+        } else {
+          // Schedule the next animation frame using requestAnimationFrame.
+          animationFrame = requestAnimationFrame(animate);
+        }
+      };
+
+      // Starts the animation by scheduling the first animation frame.
+      animationFrame = requestAnimationFrame(animate);
+    });
+  }
+</script>
+
+<section class="h-auto w-full relative overflow-hidden border-b-[1px] border-gray-600">
+  <div
+    id="brief_presentation"
+    class=" h-36 w-full relative flex items-center gap-5 justify-center"
+  >
+    <div id="image-wrapper" class="h-20 aspect-square overflow-hidden rounded-full">
+      <img
+        src="/images/Avatar.webp"
+        alt="User's profile avatar"
+        loading="lazy"
+      />
+    </div>
+    <div
+      id="full-name-wrapper"
+      class="p-8 h-10 w-auto flex items-center justify-center rounded-2xl shadow-2xl border-[1px] border-white"
+    >
+      <h1 class="font-semibold text-white text-2xl">
+        Greeting 👋 , I'm Seridi Mohammed Bachir
+      </h1>
+    </div>
+  </div>
+
+  <div
+    id="main_introduction_text"
+    class="h-auto w-full relative overflow-hidden flex flex-col items-center justify-center gap-2"
+  >
+    <div id="fullstack" class=" h-32 w-full relative flex items-center justify-center">
+      <h1
+        class="text-5xl md:text-7xl lg:text-9xl font-bold bg-gradient-to-r from-purple-400 to-purple-600 text-transparent bg-clip-text tracking-tight"
+      >
+        FULLSTACK
+      </h1>
+      <div class="small-text">
+        <p  class="text-white text-lg font-semibold text-center">
+          //Based in <br /> Algeria
+        </p>
+      </div>
+    </div>
+    <div id="developer" class=" h-32 w-full relative flex items-center justify-center">
+      <h1
+        id="DEVELOPER"
+        class="text-5xl  md:text-7xl lg:text-9xl font-bold"
+      >
+        DEVELOPER
+      </h1>
+    </div>
+    <div id="polyglot" class=" h-32 w-full relative flex items-center justify-center">
+      <div class="small-text">
+        <p class="text-white text-lg font-semibold text-center">//And a</p>
+      </div>
+      <h1
+        class="text-5xl md:text-7xl lg:text-8xl font-bold text-white"
+      >
+        <span class="text-effect" data-value="Polyglot">Polyglot</span> Developer
+      </h1>
+    </div>
+
+    <div
+    id="hero_final_sentence"
+      class="h-24 w-full relative overflow-hidden flex items-center justify-center"
+    >
+      <h3 class=" text-white font-semibold text-xl">
+        I craft intuitive digital <span id="solutions">solutions</span> that prioritize
+        <span id="efficiency">efficiency</span> and <span id="UX"
+          >user experience</span>
+      </h3>
+    </div>
+  </div>
+</section>
+
+<style>
+  #DEVELOPER {
+    background: #cc2b5e; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #cc2b5e,
+      #753a88
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #cc2b5e, #753a88);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    animation: background-pan 10s linear infinite;
+    background-size: 200%;
+  }
+
+  @keyframes background-pan {
+    from {
+      background-position: 0% center;
+    }
+    to {
+      background-position: -200% center;
+    }
+  }
+
+  #DEVELOPER {
+    animation: background-pan 5s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #DEVELOPER {
+      animation: none; /* Disable the animation */
+    }
+  }
+
+  #solutions {
+    background: #50c9c3; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #50c9c3,
+      #96deda
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #50c9c3, #96deda);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+  }
+
+  #efficiency {
+    background: #215f00; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #215f00,
+      #e4e4d9
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #215f00, #e4e4d9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+  }
+  #UX {
+    background: #c21500; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #c21500,
+      #ffc500
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #c21500, #ffc500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+  }
+  @media screen and (max-width: 768px) {
+
+    #brief_presentation > #image-wrapper{
+      height:4rem;
+    }
+
+    #brief_presentation > #full-name-wrapper{
+      padding:1.5rem;
+      padding:.7rem ;
+    }
+
+    #brief_presentation > #full-name-wrapper > h1{
+      font-size:1rem;
+      text-align: center;
+      text-wrap:balance;
+    }
+
+    #main_introduction_text > #fullstack , #developer , #polyglot{
+      height:5rem;
+      gap:1rem;
+    }
+    #fullstack>h1 , #developer >h1 , #polyglot > h1{
+      font-size:4rem;
+    }
+    #fullstack> .small-text > p  , #polyglot >.small-text > p {
+      font-size:.8rem;
+    }
+
+   #hero_final_sentence > h3{
+    font-size :1.5rem;
+    text-align: center;
+    text-wrap: pretty;
+   }
+  }
+  @media screen and (max-width:425px) {
+    
+    #brief_presentation > #image-wrapper{
+      height:4rem;
+    }
+
+    #brief_presentation > #full-name-wrapper{
+      padding:1.5rem;
+      padding: .75rem ;
+    }
+
+    #brief_presentation > #full-name-wrapper > h1{
+      font-size:1rem;
+      text-align: center;
+      text-wrap:balance;
+    }
+
+    #main_introduction_text > #fullstack , #developer , #polyglot{
+      height:5rem;
+    }
+    #fullstack>h1 , #developer >h1 , #polyglot > h1{
+      font-size:2rem;
+    }
+    #fullstack> .small-text > p  , #polyglot >.small-text > p {
+      font-size:.8rem;
+    }
+
+   #hero_final_sentence > h3{
+    font-size :1rem;
+    text-align: center;
+    text-wrap: pretty;
+   }
+  }
+
+
+
+</style>

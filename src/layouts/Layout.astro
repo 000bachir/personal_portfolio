@@ -1,0 +1,93 @@
+---
+interface Props {
+	title: string;
+}
+/**
+ * ? Layout Ui imports across the entire app 
+ */
+import Header from '@/components/widgets/Header.astro';
+import Footer from '@/components/widgets/Footer.astro';
+import ViewTransitions from 'astro/components/ViewTransitions.astro';
+
+const { title } = Astro.props;
+
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<ViewTransitions />
+	</head>
+	<body>
+		<Header />
+		<slot />
+		<Footer />
+	</body>
+</html>
+<style is:global>
+
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background: #13151a;
+		scroll-behavior: smooth;
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+
+	body {
+		--sb-track-color: #232e33;
+		--sb-thumb-color: #878a88;
+		--sb-size: 11px;
+	}
+
+	body::-webkit-scrollbar {
+		width: var(--sb-size);
+	}
+
+	body::-webkit-scrollbar-track {
+		background: var(--sb-track-color);
+		border-radius: 3px;
+	}
+
+	body::-webkit-scrollbar-thumb {
+		background: var(--sb-thumb-color);
+		border-radius: 3px;
+	}
+
+	@supports not selector(::-webkit-scrollbar) {
+		body {
+			scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+		}
+	}
+
+ 
+
+
+
+</style>

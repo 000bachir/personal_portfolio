@@ -1,0 +1,236 @@
+---
+import { Icon } from "astro-icon/components";
+import ProjectCards from "../widgets/Project-cards/ProjectCards.astro";
+---
+
+<script>
+    function adjustingTheColorPercentage() {
+        let tiles = document.querySelectorAll(
+            "article",
+        ) as NodeListOf<HTMLElement>;
+        if (tiles.length === 0) {
+            console.error(
+                "the article tag for the animation has not been found",
+            );
+            return;
+        }
+
+        tiles.forEach((tile: HTMLElement) => {
+            tile.addEventListener("mousemove", (event: MouseEvent) => {
+                // let tileRect = tile.getBoundingClientRect();
+                let decimal: number = event.offsetX / tile.offsetWidth;
+                console.log("OffsetX:", event.offsetX);
+                console.log("Tile Width:", tile.offsetWidth);
+                let basePercent: number = 80;
+                let percentRange: number = 20;
+                let adjustablePercent: number = decimal * percentRange;
+                let lightBluePercent = basePercent + adjustablePercent;
+
+                tile.style.setProperty(
+                    "--light-blue-percent",
+                    `${lightBluePercent}%`,
+                );
+            });
+        });
+    }
+    adjustingTheColorPercentage();
+</script>
+
+<section class="h-auto w-full relative overflow-hidden">
+    <div
+        class="h-32 w-[95%] mx-auto relative flex items-center justify-between"
+    >
+        <h1 class="text-3xl font-bold text-white">My Projects</h1>
+        <div
+            class="flex items-center justify-center bg-white h-16 aspect-square rounded-full"
+        >
+            <Icon name={"Computer"} size={"2rem"} color={"black"} />
+        </div>
+    </div>
+    <!--! if i need to add another project all i gotta is add another div and that should be it  -->
+    <div
+        id="project-for-big-screen"
+        class="h-auto w-full relative overflow-hidden flex items-center justify-center"
+    >
+        <div
+            id="wrapper_for_projects"
+            class="h-[80%] w-[90%] relative overflow-hidden"
+        >
+            <article class="project-tile tile border-b-[1px] border-gray-500">
+                <a class="flex z-10" href="/">
+                    <h1 id="sveltekit" class="text-4xl font-bold">
+                        E commerce Website
+                    </h1>
+                </a>
+                <div
+                    class="h-24 w-auto relative flex flex-col gap-4 items-center justify-center"
+                >
+                    <h3 class="text-xl text-white font-semibold">
+                        Developement Tools
+                    </h3>
+                    <p class="text-sm text-gray-600">
+                        Stack used: sveltekit , supabase , postgresql ,
+                        typescript , tailwindcss , cypress , vite
+                    </p>
+                </div>
+            </article>
+            <article class="project-tile tile border-b-[1px] border-gray-500">
+                <a class="flex z-10" href="/">
+                    <h1 id="python" class="text-4xl font-bold">
+                        Python File Manager(command line tool)
+                    </h1>
+                </a>
+                <div
+                    class="h-24 w-auto relative flex flex-col gap-4 items-center justify-center"
+                >
+                    <h3 class="text-xl text-white font-semibold">
+                        Developement Tools
+                    </h3>
+                    <p class="text-sm text-gray-600">
+                        Stack used: Python libraries: os , shutil , cryptoragphy
+                        , typing
+                    </p>
+                </div>
+            </article>
+            <article class="project-tile tile border-b-[1px] border-gray-500">
+                <a class="flex z-10" href="/">
+                    <h1 id="go" class="text-4xl font-bold">Go : Rest api</h1>
+                </a>
+                <div
+                    class="h-24 w-auto relative flex flex-col gap-4 items-center justify-center"
+                >
+                    <h3 class="text-xl text-white font-semibold">
+                        Developement Tools
+                    </h3>
+                    <p class="text-sm text-gray-600">
+                        Stack used , Go libraries: chi , cors , ThunderClient
+                    </p>
+                </div>
+            </article>
+            <article class="project-tile tile border-b-[1px] border-gray-500">
+                <a class="flex z-10" href="/">
+                    <h1 id="portfolio" class="text-4xl font-bold">Portfolio</h1>
+                </a>
+                <div
+                    class="h-24 w-auto relative flex flex-col gap-4 items-center justify-center"
+                >
+                    <h3 class="text-xl text-white font-semibold">
+                        Developement Tools
+                    </h3>
+                    <p class="text-sm text-gray-600">
+                        Stack used: Astro,typescript ,tailwindcss , cypress ,
+                        vite
+                    </p>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <div id="project-for-small-screen">
+        <ProjectCards />
+    </div>
+</section>
+
+<style>
+    :root {
+        --blue: rgb(61, 90, 254);
+        --light-blue: rgb(33, 150, 243);
+    }
+
+    .tile::before {
+        content: "";
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 0%;
+        position: absolute;
+        background: linear-gradient(
+            to right,
+            transparent,
+            var(--blue) var(--light-blue-percent),
+            var(--light-blue)
+        );
+    }
+    .tile:hover::before {
+        width: 100%;
+        transition: all 500ms ease;
+    }
+
+    #sveltekit {
+        color: #aa1e1e;
+    }
+    #python {
+        background: linear-gradient(to right, #ffde57, #4584b6, #646464);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -moz-background-clip: text;
+        -moz-text-fill-color: transparent;
+    }
+    #go {
+        color: #1976d2;
+    }
+    #portfolio {
+        color: white;
+    }
+
+    
+    @media screen and (max-width:2560px){
+        #project-for-big-screen{
+            display:flex;
+        }
+
+        #project-for-small-screen{
+            display:none;
+        }
+    }
+
+    @media screen and (max-width:1440px){
+        #project-for-big-screen{
+            display:flex;
+        }
+
+        #project-for-small-screen{
+            display:none;
+        }
+    }
+
+    @media screen and (max-width:1024px){
+        #project-for-big-screen{
+            display:flex;
+        }
+
+        #project-for-small-screen{
+            display:none;
+        }
+    }
+
+    @media screen and (max-width:768px){
+        
+        #project-for-big-screen{
+            display:flex;
+        }
+
+        #project-for-small-screen{
+            display:none;
+        }
+        
+    } 
+    @media screen and (max-width:425px){
+        #wrapper_for_projects > article > a > h1 {
+            font-size:1.2rem;
+        }
+
+        #project-for-big-screen{
+            display:none;
+        }
+
+        #project-for-small-screen{
+            display:block;
+        }
+
+
+    }
+
+
+
+</style>

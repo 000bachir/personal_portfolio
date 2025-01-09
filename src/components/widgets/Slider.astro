@@ -1,0 +1,102 @@
+---
+
+---
+
+<script></script>
+
+
+
+<!--they didn't want to be in the center so i had to remove the m-auto -->
+<div class="slider h-36 w-full overflow-hidden  relative">
+    <div class="slide-track">
+        <div class="slide flex flex-col gap-4 items-center justify-center">
+            <h1 class="tech  text-4xl font-bold ">HTML</h1>
+            <div class="bar h-2 w-[40%] rounded-xl"></div>
+        </div>
+        <div class="slide flex flex-col gap-4 items-center justify-center">
+            <h1 class="tech  text-4xl font-bold ">CSS</h1>
+            <div class="bar h-2 w-[40%] rounded-xl"></div>
+        </div>
+        <div class="slide flex flex-col gap-4 items-center justify-center">
+            <h1 class="tech  text-4xl font-bold ">JAVASCRIPT</h1>
+            <div class="bar h-2 w-[40%] rounded-xl"></div>
+        </div>
+        <div class="slide flex flex-col gap-4 items-center justify-center">
+            <h1 class="tech  text-4xl font-bold ">TYPESCRIPT</h1>
+            <div class="bar h-2 w-[40%] rounded-xl"></div>
+        </div>
+        <div class="slide flex flex-col gap-4 items-center justify-center">
+            <h1 class="tech  text-4xl font-bold ">NODEJS</h1>
+            <div class="bar h-2 w-[40%] rounded-xl"></div>
+        </div>
+        <div class="slide flex flex-col gap-4 items-center justify-center">
+            <h1 class="tech  text-4xl font-bold ">DENO</h1>
+            <div class="bar h-2 w-[40%] rounded-xl"></div>
+        </div>
+        <div class="slide flex flex-col gap-4 items-center justify-center">
+            <h1 class="tech  text-4xl font-bold ">SVELTEKIT</h1>
+            <div class="bar h-2 w-[40%] rounded-xl"></div>
+        </div>
+        <div class="slide flex flex-col gap-4 items-center justify-center">
+            <h1 class="tech  text-4xl font-bold ">ASTRO</h1>
+            <div class="bar h-2 w-[40%] rounded-xl"></div>
+        </div>
+        <div class="slide flex flex-col gap-4 items-center justify-center">
+            <h1 class="tech  text-4xl font-bold ">NEXTJS</h1>
+            <div class="bar h-2 w-[40%] rounded-xl"></div>
+        </div>
+        <div class="slide flex flex-col gap-4 items-center justify-center">
+            <h1 class="tech  text-4xl font-bold ">SQL</h1>
+            <div class="bar h-2 w-[40%] rounded-xl"></div>
+        </div>
+        <div class="slide flex flex-col gap-4 items-center justify-center">
+            <h1 class="tech  text-4xl font-bold ">GO</h1>
+            <div class="bar h-2 w-[40%] rounded-xl"></div>
+        </div>
+        <div class="slide flex flex-col gap-4 items-center justify-center">
+            <h1 class="tech  text-4xl font-bold ">PYTHON</h1>
+            <div class="bar h-2 w-[40%] rounded-xl"></div>
+        </div>
+        <div class="slide flex flex-col gap-4 items-center justify-center">
+            <h1 class="tech  text-4xl font-bold ">SUPABASE</h1>
+            <div class="bar h-2 w-[40%] rounded-xl"></div>
+        </div>
+        <div class="slide flex flex-col gap-4 items-center justify-center">
+            <h1 class="tech  text-4xl font-bold ">FIREBASE</h1>
+            <div class="bar h-2 w-[40%] rounded-xl"></div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    :root {
+        --background: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(255, 255, 255, 0) 100%
+        );
+        --animationSpeed: 40s; /* Added `s` for seconds */
+    }
+
+    /* Animation */
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-250px * 7));
+        }
+    }
+
+    .slide-track {
+        animation: scroll var(--animationSpeed) linear infinite; /* Corrected variable usage */
+        display: flex;
+        width: calc(250px * 14); /* Adjusted for your design */
+    }
+
+    .slide {
+        height: 100px;
+        width: 250px;
+    }
+</style>

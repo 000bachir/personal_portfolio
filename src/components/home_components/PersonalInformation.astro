@@ -1,0 +1,186 @@
+---
+/**
+ * TODO : adding responsive before production
+ */
+
+
+import { Icon } from "astro-icon/components";
+import SocialLink from "../widgets/SocialLink.astro";
+---
+
+<script>
+    import gsap from "gsap";
+    import { ScrollTrigger } from "gsap/all";
+
+    function coloringWord() {
+        gsap.registerPlugin(ScrollTrigger);
+        let selectedWords = gsap.utils.toArray<HTMLElement>(".word");
+        const ScrollTriggerElement = document.querySelector(
+            "#scroll_trigger_animation",
+        ) as HTMLElement;
+        if (!ScrollTriggerElement) {
+            console.error("ScrollTriggerElement not found");
+            return;
+        }
+
+        const timeLine = gsap.timeline({
+            scrollTrigger: {
+                trigger: ScrollTriggerElement,
+                start: "top top",
+                end: "bottom bottom",
+                scrub: 1.5,
+            },
+        });
+        timeLine.fromTo(
+            selectedWords,
+            {
+                color: "white", // Initial color
+            },
+            {
+                duration: 1.2,
+                stagger: 0.75,
+                color: () => {
+                    let colors = ["blue", "purple", "green"];
+                    return colors[Math.floor(Math.random() * colors.length)];
+                },
+            },
+        );
+    }
+    coloringWord();
+</script>
+
+<section class="h-auto w-full relative overflow-hidden">
+    <div
+        id="scroll_trigger_animation"
+        class=" h-32 w-full relative overflow-hidden border-b-[1px] border-gray-600"
+    >
+        <div
+            id="wrapper"
+            class=" h-full w-[95%] mx-auto relative overflow-hidden flex items-center justify-between"
+        >
+            <p class="text-xl text-white">
+                // design , code <br />
+                // build software
+            </p>
+
+            <SocialLink />
+
+            <div
+                id="gmail-link"
+                class="h-16 w-auto px-2 py-2 rounded-2xl overflow-hidden flex items-center gap-4 bg-gray-950 relative "
+            >
+                <Icon name="Gmail" size={"1rem"} color={"white"} />
+                <span class="text-lg font-semibold text-white"
+                    >seridi.mohammed.bachir@gmail.com</span
+                >
+            </div>
+        </div>
+    </div>
+
+    <div id="main-text-container" class="h-96 w-full relative overflow-hidden grid grid-cols-3">
+        <div id="text-with-effect" class=" col-span-2 relative overflow-hidden">
+            <div
+                id="text-wrapper"
+                class="h-full w-[95%] mx-auto flex items-center justify-center"
+            >
+                <h1
+                    class="text-lg sm:text-xl md:text-2xl lg:text-4xl font-light text-primarytext leading-relaxed text-white"
+                >
+                    I may not be the best in design😅, but <span class="word"
+                        >programming skills</span
+                    >,
+                    <span class="word">functional precision</span>, and
+                    interactive expertise sets me apart in the <span
+                        class="word">tech world</span
+                    >.
+                </h1>
+            </div>
+        </div>
+        <div id="text-without-effect" class=" col-span-1 h-full w-full ">
+            <div
+                id="wrapper-small-text"
+                class="h-full w-[95%] mx-auto flex items-center justify-center"
+            >
+                <p class="text-white text-lg px-8 text-pretty">
+                    Driving excellence in the digital world. Together, we build
+                    a future of possibilities, delivering results and pushing
+                    the boundaries of innovation.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="h-28 w-full relative border-b-[1px] border-gray-600">
+        <div id="catchy-phrase-wrapper" class="h-full w-[95%] relative overflow-hidden mx-auto flex items-center justify-between">
+            <h1 class="text-4xl text-orange-500 font-semibold">
+                Shaping Tomorrow <br>
+                Building Innovation
+            </h1>
+            <div class="h-16 aspect-square rounded-full overflow-hidden">
+                <img src="/images/portfolio-imageWebp.webp" alt="main portfolio image" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<style>
+    @media screen and (max-width:768px) {
+
+        #wrapper > p {
+            font-size:1rem;
+        }
+
+        #gmail-link{
+            height:3rem;
+        }
+        #gmail-link > span{
+            font-size:1rem;
+        }
+
+    }
+
+
+    @media screen and (max-width:425px){
+        #main-text-container{
+            display: flex;
+            flex-direction:column;
+        }
+        #text-with-effect , #text-without-effect{
+            height:100%;
+            width:100%;
+            border-bottom:;
+        }
+
+        #text-with-effect > #text-wrapper > h1 {
+            text-align:center;
+            text-wrap:balance;
+        }
+
+        #text-without-effect > #wrapper-small-text > p{
+            text-align:center;
+            text-wrap:balance;
+        }
+
+        #scroll_trigger_animation{
+            height:auto;
+            width:100%;
+            padding:1rem 0rem;
+        }
+
+        #scroll_trigger_animation > #wrapper {
+            display:flex;
+            align-items: center;
+            justify-content:center;
+            flex-direction:column;
+            gap:1rem;
+        }
+
+        
+
+        #catchy-phrase-wrapper > h1 {
+            font-size:1.5rem;
+        }
+
+    }
+</style>

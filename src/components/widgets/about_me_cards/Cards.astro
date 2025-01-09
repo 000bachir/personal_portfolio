@@ -1,0 +1,232 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+
+
+<script>
+        let cards = document.getElementById("cards") as HTMLElement;
+    if (!cards) {
+        console.error("the element with id cards has not been found");
+    }
+
+    cards.addEventListener("mousemove", (event: MouseEvent) => {
+        for (const card of document.querySelectorAll<HTMLElement>(".card")) {
+            let rect = card.getBoundingClientRect();
+            let x = event.clientX - rect.left;
+            let y = event.clientY - rect.top;
+
+            card.style.setProperty("--mouse-x", `${x}px`);
+            card.style.setProperty("--mouse-y", `${y}px`);
+        }
+    });
+</script>
+
+
+<div id="cards"class="flex flex-wrap gap-2 max-w-[calc(100% - 20px)]">
+    <div class="card">
+        <div class="card-content">
+            <div
+                class="card-content-information h-[90%] w-[90%] relative overflow-hidden flex flex-col justify-start items-center gap-4"
+            >
+                <Icon
+                    name={"Software"}
+                    size={"2rem"}
+                    color={"purple"}
+                />
+                <h3 class="text-xl font-bold text-purple-600">
+                    Software developement
+                </h3>
+                <p class="text-white text-lg font-medium text-pretty">
+                    Leveraging innovative software development to turn
+                    your ideas into robust and efficient solutions.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-content">
+            <div
+                class="card-content-information h-[90%] w-[90%] relative overflow-hidden flex flex-col justify-start items-center gap-4"
+            >
+                <Icon name={"Thunder"} size={"2rem"} color={"yellow"} />
+                <h3 class="text-xl font-bold text-yellow-500">
+                    Full Package
+                </h3>
+                <p class="text-white text-lg font-medium text-pretty">
+                    My expertise in coding, problem-solving, and
+                    seamless integration ensures exceptional solutions
+                    in the realm of software development.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-content">
+            <div
+                class="card-content-information h-[90%] w-[90%] relative overflow-hidden flex flex-col justify-start items-center gap-4"
+            >
+                <Icon name={"Computer"} size={"2rem"} color={"green"} />
+                <h3 class="text-xl font-bold text-green-600">
+                    Full Stack Development
+                </h3>
+                <p class="text-white text-lg font-medium text-pretty">
+                    Building powerful, scalable solutions that transform
+                    ideas into reality through cutting-edge technology
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-content">
+            <div
+                class="card-content-information h-[90%] w-[90%] relative overflow-hidden flex flex-col justify-start items-center gap-4"
+            >
+                <Icon
+                    name={"Languages"}
+                    size={"2rem"}
+                    color={"blue"}
+                />
+                <h3 class="text-xl font-bold text-green-600">
+                    Multilingual Expertise
+                </h3>
+                <p class="text-white text-lg font-medium text-pretty">
+                    Breaking barriers and fostering connections through
+                    fluency in French, English, and Arabic, enabling
+                    seamless communication and collaboration across the
+                    globe
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    :root {
+        --bg-color: rgb(20, 20, 20);
+        --card-color: rgb(23, 23, 23);
+    }
+    .box-shadow {
+        box-shadow:
+            rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+            rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    }
+
+    #cards:hover > .card::after {
+        opacity: 1;
+    }
+
+    .card {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        cursor: pointer;
+        display: flex;
+        height: 20rem;
+        flex-direction: column;
+        position: relative;
+        width: 20rem;
+    }
+
+    .card:hover::before {
+        opacity: 1;
+    }
+
+    .card::before,
+    .card::after {
+        border-radius: inherit;
+        content: "";
+        height: 100%;
+        left: 0px;
+        opacity: 0;
+        position: absolute;
+        top: 0px;
+        transition: opacity 500ms;
+        width: 100%;
+    }
+
+    .card::before {
+        background: radial-gradient(
+            800px circle at var(--mouse-x) var(--mouse-y),
+            rgba(255, 255, 255, 0.06),
+            transparent 40%
+        );
+        z-index: 3;
+    }
+
+    .card::after {
+        background: radial-gradient(
+            600px circle at var(--mouse-x) var(--mouse-y),
+            rgba(255, 255, 255, 0.4),
+            transparent 40%
+        );
+        z-index: 1;
+    }
+
+    .card > .card-content {
+        background-color: var(--card-color);
+        border-radius: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+        inset: 2px;
+        padding: 10px;
+        position: absolute;
+        z-index: 2;
+    }
+
+    @media screen and (max-width: 768px) {
+        #about-me-introduction > p {
+            font-size: 1.25rem;
+        }
+
+        #about-me-button {
+            height: 2.5rem;
+            padding: 0rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #about-me-button > h1 {
+            font-size: 1rem;
+        }
+        #cards{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    @media screen and (max-width: 425px) {
+        #about-me-introduction {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #about-me-introduction > p {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-wrap: balance;
+        }
+
+        #about-me-button {
+            height: 2rem;
+            padding: 0rem 2rem;
+        }
+        #about-me-button > h1 {
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        #cards {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+    }
+</style>

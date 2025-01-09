@@ -1,0 +1,90 @@
+---
+import Cards from "../widgets/about_me_cards/Cards.astro"
+---
+
+
+<section class="h-auto w-full relative overflow-hidden">
+    <div class="h-36 w-full overflow-hidden">
+        <div
+            id="about-me-introduction"
+            class="h-full w-[95%] mx-auto flex items-center justify-between"
+        >
+            <p class="text-xl text-white text-balance">
+                I craft tailored solutions, pushing boundaries with every <br />
+                project and maintaining a steadfast commitment to delivering <br
+                />
+                excellence.
+            </p>
+            <div
+                id="about-me-button"
+                class="bg-black h-12 w-auto px-8 rounded-xl border-[1px] border-gray-600 box-shadow"
+            >
+                <h1 class="text-xl text-white">
+                    <a href="/about">Who I Am</a>
+                </h1>
+            </div>
+        </div>
+    </div>
+
+    <div id="about-me-intro-for-cards" class="h-auto w-full relative py-4">
+        <h1 class="text-purple-600 text-4xl text-center font-bold">ABOUT ME</h1>
+    </div>
+    <div class="h-auto w-full relative flex items-center justify-center">
+        <Cards />
+    </div>
+</section>
+
+<style>
+    :root {
+        --bg-color: rgb(20, 20, 20);
+        --card-color: rgb(23, 23, 23);
+    }
+    .box-shadow {
+        box-shadow:
+            rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+            rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    }
+
+
+    @media screen and (max-width: 768px) {
+        #about-me-introduction > p {
+            font-size: 1.25rem;
+        }
+
+        #about-me-button {
+            height: 2.5rem;
+            padding: 0rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #about-me-button > h1 {
+            font-size: 1rem;
+        }
+
+    }
+
+    @media screen and (max-width: 425px) {
+        #about-me-introduction {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #about-me-introduction > p {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-wrap: balance;
+        }
+
+        #about-me-button {
+            height: 2rem;
+            padding: 0rem 2rem;
+        }
+        #about-me-button > h1 {
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+    }
+</style>
