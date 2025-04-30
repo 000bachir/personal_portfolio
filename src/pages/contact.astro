@@ -1,0 +1,72 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import GmailSvg from "@/icons/Gmail.svg";
+import { Icon } from "astro-icon/components";
+
+const Socials = [
+    { name: "X", id: "x", href: "https://x.com/HexaFighter" },
+    { name: "Instagram", id: "insta", href: "https://www.instagram.com/bachir_srd/" },
+    { name: "Facebook", id: "facebook", href: "https://www.facebook.com/seridi.m.bachir" },
+];
+---
+
+<script></script>
+
+<Layout title="contact">
+    <main class="h-auto w-full relative overflow-hidden">
+        <section class="h-dvh w-full grid grid-cols-2">
+            <div
+                class="h-full w-full col-span-1 grid grid-rows-2 overflow-hidden border-r-[1px] border-gray-600"
+            >
+                <div
+                    class="h-full w-full overflow-hidden flex flex-col items-center justify-center gap-8"
+                >
+                    <h1 class="text-3xl font-semibold text-gray-100">
+                        You can send an email directly here :
+                    </h1>
+                    <div
+                        class="h-24 w-auto rounded-2xl shadow-xl flex items-center justify-center"
+                    >
+                        <a
+                            href="mailto:seridi.mohammed.bachir@gmail.com"
+                            class="flex items-center justify-center gap-10 px-4"
+                        >
+                            <span class="text-3xl font-semibold text-gray-100"
+                                >Email me:</span
+                            >
+                            <Icon
+                                name="Gmail"
+                                size={"2rem"}
+                                color={"white"}
+                                id="Gmail"
+                            />
+                        </a>
+                    </div>
+                </div>
+                <div
+                    class="h-full w-full border-t-[1px] border-gray-600 bg-red-500"
+                >
+                </div>
+            </div>
+
+            <div
+                class="h-full w-full col-span-1 grid grid-rows-2 overflow-hidden"
+            >
+                <div class="h-full w-full bg-green-500 flex items-center justify-evenly">
+                    <h1 class="text-xl font-semibold text-gray-100">
+                        Or add me as a freind :
+                    </h1>
+                    {Socials.map((social)=>{
+                        <a href={social.href}>
+                            <div class="h-18 aspect-square shadow flex items-center justify-center">
+                                <Icon name={social.name} id={social.id} size={"2rem"} />
+                            </div>
+                        </a>
+                    })}
+                </div>
+
+            </div>
+            <div class="h-full w-full border-t-[1px] border-gray-600"></div>
+        </section>
+    </main>
+</Layout>
