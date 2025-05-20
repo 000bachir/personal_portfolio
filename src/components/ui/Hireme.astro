@@ -1,0 +1,80 @@
+---
+
+---
+
+<script>
+    function DevidedText() {
+        const MainText = document.getElementById(
+            "splitted-text",
+        ) as HTMLElement;
+
+        if (MainText) {
+            const text = MainText.textContent || "";
+
+            const splittedText = Array.from(text);
+
+            MainText.innerHTML = "";
+
+            splittedText.forEach((letter: any, index: number) => {
+                const span = document.createElement("span");
+                span.classList.add("letter-wrapper");
+                span.innerHTML = letter;
+
+                MainText.appendChild(span);
+            });
+        }
+    }
+    DevidedText();
+</script>
+
+<section class="h-full w-full flex items-center justify-center">
+    <h1
+        id="splitted-text"
+        class="text-5xl font-semibold text-purple-700 flex items-center gap-1"
+    >
+        Hire Me 😋
+    </h1>
+</section>
+
+<style is:inline>
+    #splitted-text{
+        text-decoration: underline;
+    }
+    .letter-wrapper {
+        display: inline-block;
+        transition: all 500ms ease;
+        text-decoration: underline;
+    }
+
+    #splitted-text:hover > .letter-wrapper:nth-child(1) {
+        transform: translate(-80%, 60%) rotate(8deg);
+    }
+
+    #splitted-text:hover > .letter-wrapper:nth-child(2) {
+        transform: translate(-40%, 20%) rotate(4deg);
+    }
+
+    #splitted-text:hover > .letter-wrapper:nth-child(3) {
+        transform: translate(-10%, 60%) rotate(-6deg);
+    }
+
+    #splitted-text:hover > .letter-wrapper:nth-child(4) {
+        transform: translate(0%, 8%) rotate(-8deg);
+    }
+
+    #splitted-text:hover > .letter-wrapper:nth-child(5) {
+        transform: translate(0%, -20%) rotate(5deg);
+    }
+
+    #splitted-text:hover > .letter-wrapper:nth-child(6) {
+        transform: translate(0%, 20%) rotate(-3deg);
+    }
+
+    #splitted-text:hover > .letter-wrapper:nth-child(7) {
+        transform: translate(0%, -40%) rotate(-5deg);
+    }
+
+    #splitted-text:hover > .letter-wrapper:nth-child(8) {
+        transform: translate(0%, 15%) rotate(10deg);
+    }
+</style>

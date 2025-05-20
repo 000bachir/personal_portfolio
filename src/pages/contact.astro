@@ -2,20 +2,9 @@
 import Layout from "@/layouts/Layout.astro";
 import GmailSvg from "@/icons/Gmail.svg";
 import { Icon } from "astro-icon/components";
+import Hireme from "@/components/ui/Hireme.astro";
 
-const Socials = [
-    { name: "X", id: "x", href: "https://x.com/HexaFighter" },
-    {
-        name: "Instagram",
-        id: "insta",
-        href: "https://www.instagram.com/bachir_srd/",
-    },
-    {
-        name: "Facebook",
-        id: "facebook",
-        href: "https://www.facebook.com/seridi.m.bachir",
-    },
-];
+
 
 const Works = [
     { name: "Github", href: "https://github.com/000bachir", id: "github" },
@@ -61,33 +50,8 @@ const Freelances = [
                     </a>
                 </button>
             </div>
-            <div
-                class="h-full w-full relative overflow-hidden flex flex-col items-center justify-center gap-4" id='top-right'
-            >
-                <h1 class="text-3xl font-semibold text-purple-700">
-                    Or send me a freind request 🙂
-                </h1>
-
-                <div class="flex items-center justify-center gap-4" id="container-right">
-                    {
-                        Socials.map((social) => (
-                            <button
-                                type="submit"
-                                class="px-6 py-3 rounded-lg shadow font-semibold text-4xl"
-                            >
-                                <a href={social.href}
-                                >
-                                    <Icon
-                                        name={social.name}
-                                        
-                                        color={"white"}
-                                        id={social.id}
-                                    />
-                                </a>
-                            </button>
-                        ))
-                    }
-                </div>
+            <div class="h-full w-full relative overflow-hidden" id='top-right'>
+                <Hireme />
             </div>
             <div
                 class="h-full w-full relative flex flex-col items-center justify-center gap-4 border-r-[1px] border-t-[1px] border-gray-600 overflow-hidden" id="bottom-left"
