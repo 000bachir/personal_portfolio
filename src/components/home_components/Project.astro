@@ -1,9 +1,11 @@
 ---
 import { Icon } from "astro-icon/components";
 import ProjectCards from "../project_components/Project-cards/ProjectCards.astro";
+
 ---
 
 <script>
+    /*
     function adjustingTheColorPercentage() {
         let tiles = document.querySelectorAll(
             "article",
@@ -33,22 +35,22 @@ import ProjectCards from "../project_components/Project-cards/ProjectCards.astro
             });
         });
     }
-    adjustingTheColorPercentage();
+    adjustingTheColorPercentage();*/
 </script>
 
 <section class="h-auto w-full relative overflow-hidden">
     <div
         class="h-32 w-[95%] mx-auto relative flex items-center justify-between"
     >
-        <h1 class="text-3xl font-bold text-white">My Projects</h1>
+        <h1 class="text-3xl font-bold ">My Projects</h1>
         <div
-            class="flex items-center justify-center bg-white h-16 aspect-square rounded-full"
+            class="flex items-center justify-center  h-16 aspect-square rounded-full"
         >
             <Icon name={"Computer"} size={"2rem"} color={"black"} />
         </div>
     </div>
     <!--! if i need to add another project all i gotta is add another div and that should be it  -->
-    <div
+    <!-- <div
         id="project-for-big-screen"
         class="h-auto w-full relative overflow-hidden flex items-center justify-center"
     >
@@ -65,7 +67,7 @@ import ProjectCards from "../project_components/Project-cards/ProjectCards.astro
                 <div
                     class="h-24 w-auto relative flex flex-col gap-4 items-center justify-center"
                 >
-                    <h3 class="text-xl text-white font-semibold">
+                    <h3 class="text-xl  font-semibold">
                         Developement Tools
                     </h3>
                     <p class="text-sm text-gray-600">
@@ -82,7 +84,7 @@ import ProjectCards from "../project_components/Project-cards/ProjectCards.astro
                 <div
                     class="h-24 w-auto relative flex flex-col gap-4 items-center justify-center"
                 >
-                    <h3 class="text-xl text-white font-semibold">
+                    <h3 class="text-xl  font-semibold">
                         Developement Tools
                     </h3>
                     <p class="text-sm text-gray-600">
@@ -97,7 +99,7 @@ import ProjectCards from "../project_components/Project-cards/ProjectCards.astro
                 <div
                     class="h-24 w-auto relative flex flex-col gap-4 items-center justify-center"
                 >
-                    <h3 class="text-xl text-white font-semibold">
+                    <h3 class="text-xl  font-semibold">
                         Developement Tools
                     </h3>
                     <p class="text-sm text-gray-600">
@@ -112,7 +114,7 @@ import ProjectCards from "../project_components/Project-cards/ProjectCards.astro
                 <div
                     class="h-24 w-auto relative flex flex-col gap-4 items-center justify-center"
                 >
-                    <h3 class="text-xl text-white font-semibold">
+                    <h3 class="text-xl  font-semibold">
                         Developement Tools
                     </h3>
                     <p class="text-sm text-gray-600">
@@ -122,8 +124,81 @@ import ProjectCards from "../project_components/Project-cards/ProjectCards.astro
                 </div>
             </article>
         </div>
+    </div>  -->
+
+    <div
+      class="border-t-[1px] border-b-[1px]  dark:border-gray-200 grid grid-cols-1 place-content-center mt-10 text-center sm:mt-16 sm:grid-cols-2 sm:gap-x-10 gap-y-10 md:grid-cols-3 md:gap-0 xl:mt-24">
+      <!-- Feature 1 -->
+      <div class="md:p-8 lg:p-14 flex flex-col justify-center items-center">
+        <div class="w-20 h-20 rounded-full overflow-hidden flex justify-center items-center">
+            <a href="https://github.com/000bachir/sveltekit_ecommerce_website/tree/main" class="h-full w-full">
+                <img class="object-cover w-full rounded-full" src="/images/e_commerce.webp" alt="">
+            </a>
+        </div>
+        <h3 class="mt-12 text-xl font-bold ">E-commerce Website</h3>
+        <p class="mt-5 text-base ">Built with SvelteKit and Supabase, featuring OAuth and email/password authentication for secure user access</p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="md:p-8 lg:p-14 md:border-l md:border-gray-200 flex flex-col justify-center items-center">
+        <div class="w-20 h-20 rounded-full overflow-hidden flex justify-center items-center">
+            <a href="https://github.com/000bachir/python_file_manager_cmd/tree/main" class="h-full w-full">
+                <img class="object-cover w-full rounded-full" src="/images/file_manager.webp" alt="">
+            </a>
+        </div>
+        <h3 class="mt-12 text-xl font-bold ">Folder and File Manager</h3>
+        <p class="mt-5 text-base ">Python-based tool demonstrating file/folder creation, deletion, organization, and encryption capabilities.</p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="md:p-8 lg:p-14 md:border-l md:border-gray-200 flex flex-col justify-center items-center">
+        <div class="w-20 h-20 rounded-full overflow-hidden flex justify-center items-center">
+            <a href="https://github.com/000bachir/go_chat_application" class="h-full w-full">
+                <img class="object-cover w-full rounded-full" src="/images/chat-application.webp" alt="">
+            </a>
+        </div>
+        <h3 class="mt-12 text-xl font-bold ">Chat App</h3>
+        <p class="mt-5 text-base ">Developed using GoLang and Next.js with WebSocket for real-time, scalable messaging</p>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="md:p-8 lg:p-14 md:border-t md:border-gray-200 flex flex-col justify-center items-center">
+        <div class="w-20 h-20 rounded-full overflow-hidden flex justify-center items-center">
+            <a href="https://github.com/000bachir/python_file_manager_cmd/tree/main" class="h-full w-full">
+                <img class="object-cover w-full rounded-full" src="/images/deno http.webp" alt="">
+            </a>
+        </div>
+        <h3 class="mt-12 text-xl font-bold ">Deno HTTP Server</h3>
+        <p class="mt-5 text-base ">Created with Oak, incorporating authentication and JWT for secure API interactions</p>
+      </div>
+
+      <!-- Feature 5 -->
+
+
+      <div class="md:p-8 lg:p-14 md:border-l md:border-gray-200 md:border-t flex flex-col justify-center items-center">
+        <div class="w-20 h-20 rounded-full overflow-hidden flex justify-center items-center">
+            <a href="https://github.com/000bachir/personal_portfolio" class="h-full w-full">
+                <img class="object-cover w-full rounded-full" src="/images/Avatar.webp" alt="">
+            </a>
+        </div>
+        <h3 class="mt-12 text-xl font-bold ">Portfolio</h3>
+        <p class="mt-5 text-base ">Crafted with Tailwind CSS and Astro for a modern, responsive showcase of personal projects</p>
+      </div>
+
+
+
+      <div class="md:p-8 lg:p-14 md:border-l md:border-gray-200 md:border-t flex flex-col justify-center items-center">
+        <div class="w-14 h-14 rounded-full  flex justify-center items-center">
+            <Icon name="Github" size={"3rem"}  />
+        </div>
+        <h3 class="mt-12 text-xl font-bold ">Readme.md</h3>
+        <p class="mt-5 text-base ">I didn't have a chance to work on real-world projects, so all of this project and more are just a showcase and kind of like a tutorial for future visitors</p>
+      </div>
+     
+      
     </div>
 
+    <!--* this is only for small screen sizes -->
     <div id="project-for-small-screen">
         <ProjectCards />
     </div>
@@ -188,7 +263,7 @@ import ProjectCards from "../project_components/Project-cards/ProjectCards.astro
         }
 
         #project-for-small-screen{
-            display:none;
+            display:block;
         }
     }
 

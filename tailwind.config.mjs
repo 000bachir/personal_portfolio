@@ -61,13 +61,13 @@ export default {
     				ring: 'hsl(var(--sidebar-ring))'
     			}
     		},
-			screens : {
-				"sm" : "425px",
-				"md" : "768px",
-				"lg" : "1024px",
-				"xl" : "1440px",
-				"2xl" : "2560px"
-			}
+    		screens: {
+    			'sm': '425px',
+    			'md': '768px',
+    			'lg': '1024px',
+    			'xl': '1440px',
+    			'2xl': '2560px'
+    		}
     	}
     },
 	plugins: [require("tailwindcss-animate")],

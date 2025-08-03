@@ -1,51 +1,22 @@
 ---
-import Slider from "../widgets/Slider.astro"
+import {TechStackCarousels} from "../ui/CarouselSlider"
 ---
 
-<script>
-
-    function ApplyingColors(){
-        let TechStack = document.querySelectorAll(".tech") as NodeListOf<HTMLElement> ;
-            let bars = document.querySelectorAll(".bar") as NodeListOf<HTMLElement>
-        if(!TechStack.length && !bars.length){
-            console.error("error  elements have not been found");
-            return
-        }
-        let stackColors:string[] = [
-            "#E34F26", // HTML (Orange-red)
-            "#1572B6", // CSS (Blue)
-            "#F7DF1E", // JavaScript (Yellow)
-            "#3178C6", // TypeScript (Blue)
-            "#339933", // Node.js (Green)
-            "#FFF", // Deno (Yellow-black gradient, approximated to Yellow)
-            "#FF3E00", // SvelteKit (Orange)
-            "#FF5A03", // Astro (Light orange)
-            "#000000", // Next.js (Black)
-            "#4479A1", // SQL (Blue-gray)
-            "#00ADD8", // Go (Teal)
-            "#3776AB", // Python (Blue)
-            "#3ECF8E", // Supabase (Green)
-            "#FFCA28"  // Firebase (Yellow)
-        ];
-        TechStack.forEach((tech : HTMLElement , index:number)=>{
-            let color = stackColors[index % stackColors.length]
-            tech.style.color = color
-        })
-        bars.forEach((bar : HTMLElement , index : number)=>{
-            let barColor = stackColors[index % stackColors.length]
-            bar.style.background = barColor
-        })
-    }
-    ApplyingColors();
-</script>
-
-<section class="h-auto py-10  w-full flex flex-col items-center justify-center gap-6">
-    <div class="h-36 w-full ">
-        <h1 class="text-white text-4xl md:text-4xl lg:text-6xl font-semibold max-w-7xl text-center text-pretty mx-auto">
-            I build next-gen, bleeding-edge, blazingly fast web apps 😎
+<section
+    class="h-auto py-10 w-full flex flex-col items-center justify-center gap-6"
+>
+    <div class="h-36 w-full mt-12">
+        <h1
+            class="text-4xl font-semibold max-w-7xl text-center text-pretty mx-auto"
+        >
+            I try to stay as versatile as possible, exploring different paths
+            and tools to solve problems 😅
         </h1>
     </div>
-    <Slider />
+    <div
+        class=" slider h-auto py-12 w-full overflow-hidden relative flex items-center justify-center flex-col mb-12"
+    >
+        <!--Pass the processed data to your component -->
+        <TechStackCarousels client:idle />
+    </div>
 </section>
-
-<style></style>
