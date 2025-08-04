@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -35,7 +36,9 @@
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%}
+    --sidebar-ring: 217.2 91.2% 59.8%
+  }
+
   .dark {
     --background: 224 71.4% 4.1%;
     --foreground: 210 20% 98%;
@@ -68,22 +71,73 @@
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%}
+    --sidebar-ring: 217.2 91.2% 59.8%
+  }
 }
 
 @layer components {
-  .project-tile{
-    height:9rem ;
+  .project-tile {
+    height: 9rem;
     width: 100%;
     position: relative;
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: space-between;
   }
-  .bg-background-for-dark-mode{
+
+  .bg-background-for-dark-mode {
     background: rgba(3, 7, 18, 1);
 
   }
+
+  .shadow-box-for-footer {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  }
+
+  /*
+    * footer light background
+  */
+  .footer-light {
+    background-image: radial-gradient(rgba(0, 0, 0, 0.2) 8%,
+        transparent 8%);
+    background-position: 0% 0%;
+    background-size: 5vmin 5vmin;
+    transition: all 500ms ease;
+  }
+
+  /*
+    ? footer dark background
+  */
+  .footer-dark {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.2) 8%,
+        transparent 8%);
+    background-position: 0% 0%;
+    background-size: 5vmin 5vmin;
+    transition: all 500ms ease;
+  }
+
+  /*
+  * glass morphism effect for the side navigatoinavigation
+  */
+
+  .side-bar-background {
+    background: rgba(0, 0, 0, 0.64);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    /* From https://css.glass */
+    background: rgba(0, 0, 0, 0.64);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+
+  }
+
+
 }
 
 
@@ -105,13 +159,12 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background: var(--sb-thumb-color);
   border-radius: 3px;
-  
+
 }
 
 @supports not selector(::-webkit-scrollbar) {
   body {
-    scrollbar-color: var(--sb-thumb-color)
-                     var(--sb-track-color);
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
   }
 }
 
@@ -121,6 +174,7 @@ body::-webkit-scrollbar-thumb {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }

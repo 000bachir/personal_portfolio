@@ -37,8 +37,6 @@ import "../../styles/global.css";
     });
   }
   toggleSidebar();
-
-
 </script>
 
 <header class="h-auto w-full border-b-[1px] dark:bg-background-for-dark-mode">
@@ -55,15 +53,18 @@ import "../../styles/global.css";
           id="full-name-wrapper"
           class="p-4 h-10 w-auto flex items-center justify-center rounded-2xl shadow-2xl border-[1px]"
         >
-          <a href="/" class="font-semibold">Seridi Mohammed Bachir</a>
+          <a href="/" class="font-semibold">S M Bachir</a>
         </div>
       </div>
+
+      <!--! links side of navbar -->
+
       <div
         id="links-container"
         class="col-span-1 relative flex items-center justify-center"
       >
         <div
-          id="links-container"
+          id="links-navigations"
           class="h-10 w-auto p-4 rounded-2xl shadow-2xl flex items-center border-[1px]"
         >
           <ul class="flex items-center gap-4">
@@ -94,9 +95,11 @@ import "../../styles/global.css";
           </ul>
         </div>
       </div>
+
+      <!--! contact + light and dark mode  -->
       <div
         id="contact-container"
-        class="col-span-1 relative flex items-center justify-end  gap-6"
+        class="col-span-1 relative flex items-center justify-center gap-6"
       >
         <div
           id="contact-button"
@@ -109,10 +112,10 @@ import "../../styles/global.css";
         </div>
         <ModeToggle client:load />
       </div>
+      <Button size={"lg"} variant={"ghost"} id="open-btn">
+        <Icon name={"Bars"} size={"2rem"} color={"white"} />
+      </Button>
     </nav>
-    <Button size={"lg"} variant={"ghost"} id="open-btn">
-      <Icon name={"Bars"} size={"2rem"} color={"white"} />
-    </Button>
   </div>
 </header>
 
@@ -120,24 +123,24 @@ import "../../styles/global.css";
 
 <div
   id="side-bar"
-  class="h-[50%] w-full absolute left-1/2 -translate-x-1/2 top-24 z-10 flex items-center justify-center"
+  class="h-auto overflow-hidden w-full absolute left-1/2 -translate-x-1/2 top-24 z-50 flex items-center justify-center"
 >
   <div
     id="side-bar-container"
-    class="h-[95%] w-[95%] mx-auto border rounded-xl flex items-center justify-center"
+    class="side-bar-background h-[95%] w-[95%] backdrop:hidden mx-auto border rounded-xl flex items-center justify-center"
   >
     <div id="side-bar-wrapper" class="h-[95%] w-[90%] mx-auto grid grid-rows-4">
-      <div class="row-span-1 h-full w-full flex items-center justify-between">
+      <div class="row-span-1 h-full w-full flex items-center justify-between py-4">
         <a class="flex items-center gap-2" href="/">
           <Icon name="Home" />
           Home
         </a>
-        <Button size={"sm"} id="close-btn">
-          <Icon name={"Cross"} color={"white"} />
+        <Button size={"sm"} variant={"ghost"} id="close-btn">
+          <Icon name={"Cross"} color={"red"} />
         </Button>
       </div>
       <div
-        class="row-span-1 h-full w-full border-t-[1px] border-gray-600 flex items-center"
+        class="row-span-1 h-full w-full border-t-[1px] border-gray-600 flex items-center py-4"
       >
         <a class="flex items-center gap-2" href="/project">
           <Icon name="Project" />
@@ -145,7 +148,7 @@ import "../../styles/global.css";
         </a>
       </div>
       <div
-        class="row-span-1 h-full w-full border-t-[1px] border-gray-600 flex items-center"
+        class="row-span-1 h-full w-full border-t-[1px] border-gray-600 flex items-center py-4"
       >
         <a class="flex items-center gap-2" href="/about">
           <Icon name="About" />
@@ -153,7 +156,15 @@ import "../../styles/global.css";
         </a>
       </div>
       <div
-        class="row-span-1 h-full w-full border-t-[1px] border-gray-600 flex items-center"
+        class="row-span-1 h-full w-full border-t-[1px] border-gray-600 flex items-center py-4"
+      >
+        <a class="flex items-center gap-2" href="/resume">
+          <Icon name="Languages" />
+          Resume
+        </a>
+      </div>
+      <div
+        class="row-span-1 h-full w-full border-t-[1px] border-gray-600 flex items-center py-4"
       >
         <a class="font-semibold flex items-center gap-2" href="/contact">
           <Icon name="Contact" />
@@ -202,12 +213,18 @@ import "../../styles/global.css";
       justify-content: center;
     }
 
+    #links-container {
+      overflow: hidden;
+    }
+
+    #links-navigations {
+      display: none;
+    }
+   
+
     #full-name-wrapper > h1 {
       font-size: 0.85rem;
       font-weight: 500;
-    }
-    #open-btn {
-      display: none;
     }
   }
   @media screen and (max-width: 425px) {

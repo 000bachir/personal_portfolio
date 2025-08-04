@@ -4,39 +4,7 @@ import ProjectCards from "../project_components/Project-cards/ProjectCards.astro
 
 ---
 
-<script>
-    /*
-    function adjustingTheColorPercentage() {
-        let tiles = document.querySelectorAll(
-            "article",
-        ) as NodeListOf<HTMLElement>;
-        if (tiles.length === 0) {
-            console.error(
-                "the article tag for the animation has not been found",
-            );
-            return;
-        }
-
-        tiles.forEach((tile: HTMLElement) => {
-            tile.addEventListener("mousemove", (event: MouseEvent) => {
-                // let tileRect = tile.getBoundingClientRect();
-                let decimal: number = event.offsetX / tile.offsetWidth;
-                console.log("OffsetX:", event.offsetX);
-                console.log("Tile Width:", tile.offsetWidth);
-                let basePercent: number = 80;
-                let percentRange: number = 20;
-                let adjustablePercent: number = decimal * percentRange;
-                let lightBluePercent = basePercent + adjustablePercent;
-
-                tile.style.setProperty(
-                    "--light-blue-percent",
-                    `${lightBluePercent}%`,
-                );
-            });
-        });
-    }
-    adjustingTheColorPercentage();*/
-</script>
+<script></script>
 
 <section class="h-auto w-full relative overflow-hidden">
     <div
@@ -49,84 +17,8 @@ import ProjectCards from "../project_components/Project-cards/ProjectCards.astro
             <Icon name={"Computer"} size={"2rem"} color={"black"} />
         </div>
     </div>
-    <!--! if i need to add another project all i gotta is add another div and that should be it  -->
-    <!-- <div
-        id="project-for-big-screen"
-        class="h-auto w-full relative overflow-hidden flex items-center justify-center"
-    >
-        <div
-            id="wrapper_for_projects"
-            class="h-[80%] w-[90%] relative overflow-hidden"
-        >
-            <article class="project-tile tile border-b-[1px] border-gray-500">
-                <a class="flex z-10" href="/">
-                    <h1 id="sveltekit" class="text-4xl font-bold">
-                        E commerce Website
-                    </h1>
-                </a>
-                <div
-                    class="h-24 w-auto relative flex flex-col gap-4 items-center justify-center"
-                >
-                    <h3 class="text-xl  font-semibold">
-                        Developement Tools
-                    </h3>
-                    <p class="text-sm text-gray-600">
-                        Stack used: sveltekit , supabase
-                    </p>
-                </div>
-            </article>
-            <article class="project-tile tile border-b-[1px] border-gray-500">
-                <a class="flex z-10" href="/">
-                    <h1 id="python" class="text-4xl font-bold">
-                        Python File Manager(command line tool)
-                    </h1>
-                </a>
-                <div
-                    class="h-24 w-auto relative flex flex-col gap-4 items-center justify-center"
-                >
-                    <h3 class="text-xl  font-semibold">
-                        Developement Tools
-                    </h3>
-                    <p class="text-sm text-gray-600">
-                        Stack used : Python built in tools and fernet  
-                    </p>
-                </div>
-            </article>
-            <article class="project-tile tile border-b-[1px] border-gray-500">
-                <a class="flex z-10" href="/">
-                    <h1 id="go" class="text-4xl font-bold">Go : Chat application</h1>
-                </a>
-                <div
-                    class="h-24 w-auto relative flex flex-col gap-4 items-center justify-center"
-                >
-                    <h3 class="text-xl  font-semibold">
-                        Developement Tools
-                    </h3>
-                    <p class="text-sm text-gray-600">
-                        Stack used , Go libraries: Gin and Next js 
-                    </p>
-                </div>
-            </article>
-            <article class="project-tile tile border-b-[1px] border-gray-500">
-                <a class="flex z-10" href="/">
-                    <h1 id="portfolio" class="text-4xl font-bold">Portfolio</h1>
-                </a>
-                <div
-                    class="h-24 w-auto relative flex flex-col gap-4 items-center justify-center"
-                >
-                    <h3 class="text-xl  font-semibold">
-                        Developement Tools
-                    </h3>
-                    <p class="text-sm text-gray-600">
-                        Stack used: Astro ,tailwindcss
-                        vite
-                    </p>
-                </div>
-            </article>
-        </div>
-    </div>  -->
-
-    <div
+    <!--! just a tiny list of projects that i have worked on   -->
+    <div id="project-big-screen"
       class="border-t-[1px] border-b-[1px]  dark:border-gray-200 grid grid-cols-1 place-content-center mt-10 text-center sm:mt-16 sm:grid-cols-2 sm:gap-x-10 gap-y-10 md:grid-cols-3 md:gap-0 xl:mt-24">
       <!-- Feature 1 -->
       <div class="md:p-8 lg:p-14 flex flex-col justify-center items-center">
@@ -263,26 +155,18 @@ import ProjectCards from "../project_components/Project-cards/ProjectCards.astro
         }
 
         #project-for-small-screen{
-            display:block;
+            display:none;
         }
     }
 
     @media screen and (max-width:1024px){
-        #project-for-big-screen{
-            display:flex;
-        }
-
+        
         #project-for-small-screen{
             display:none;
         }
     }
 
     @media screen and (max-width:768px){
-        
-        #project-for-big-screen{
-            display:flex;
-        }
-
         #project-for-small-screen{
             display:none;
         }
@@ -293,7 +177,7 @@ import ProjectCards from "../project_components/Project-cards/ProjectCards.astro
             font-size:1.2rem;
         }
 
-        #project-for-big-screen{
+        #project-big-screen{
             display:none;
         }
 

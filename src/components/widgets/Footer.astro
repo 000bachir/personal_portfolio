@@ -1,144 +1,71 @@
 ---
-import { Button } from "@/components/ui/button.tsx"
-import SocialLink from "@/components/widgets/SocialLink.astro"
+import { Button } from "@/components/ui/button.tsx";
+import SocialLink from "@/components/widgets/SocialLink.astro";
 ---
+
 <script>
-    const wrapper = document.querySelector("#tiles") as HTMLElement;
-    let columns = 0;
-    let rows = 0;
 
-    const createTile = () => {
-        const tile = document.createElement("div"); // create a div element
-        tile.classList.add("tile"); // add a class of tile to it 
-        return tile;
-    };
-
-    const createTiles = (quantity: number) => {
-        const fragment = document.createDocumentFragment(); // createDocumentFragment for better performance.
-        // for loop to loop over the quantity of tile needed and appending the createTile func
-        for (let i = 0; i < quantity; i++) {
-            fragment.appendChild(createTile());
-        }
-        wrapper.appendChild(fragment);
-    };
-
-    const createGrid = () => {
-        wrapper.innerHTML = ""; // removing initiall grids
-        let size = 40; // set a fixed size
-
-        // wrapper dimensions
-        const wrapperWidth = wrapper.clientWidth;
-        const wrapperHeight = wrapper.clientHeight;
-
-        columns = Math.floor(wrapperWidth / size);
-        rows = Math.floor(wrapperHeight / size);
-
-        wrapper.style.setProperty("--columns", String(columns));
-        wrapper.style.setProperty("--rows", String(rows));
-
-        createTiles(columns * rows);
-    };
-
-    // Initial grid creation
-    createGrid();
-
-    // Throttle the resize event to improve performance.
-    let resizeTimeout: number | null = null;
-    window.onresize = () => {
-        if (resizeTimeout) clearTimeout(resizeTimeout);
-        resizeTimeout = window.setTimeout(() => {
-            createGrid();
-        }, 150); // Adjust delay as needed.
-    };
 </script>
-<footer class="h-auto w-full relative overflow-hidden flex items-center justify-center flex-col ">
-  
-
-
-<section
-    id="grid-container"
-    class="h-72 w-full relative overflow-hidden flex items-center flex-col justify-center"
+<footer
+    class="h-auto w-full relative overflow-hidden flex items-center justify-center flex-col"
 >
-    <div
-        id="footer_contact_wrapper"
-        class="h-full w-full mx-auto relative overflow-hidden border-t-gray-600"
+    <section
+        id="footer"
+        class="footer-light dark:footer-dark h-72 w-full relative overflow-hidden grid grid-cols-3 border-t-[1px] border-gray-600"
     >
-        <div id="tiles" class=""></div>
-    </div>
-
-    <div id="content-footer" class="absolute left-0 top-0 h-full w-full z-20 grid grid-cols-3">
-
-        <div id="footer-text" class="h-full w-full relative overflow-hidden flex items-center justify-center">
-            <h1 class="text-3xl font-semibold  text-balance">
-                Where innovation & <br> <span class="text-orange-500">creativity</span> thrive
+        <article
+            class="column col-span-1 h-fulll w-full overflow-hidden flex items-center justify-center"
+        >
+            <h1 id="main-footer-text" class="text-3xl font-semibold text-balance text-purple-700">
+                Where innovation & <br />
+                <span class="text-orange-500">creativity</span> thrive
             </h1>
-        </div>
-        <div class="h-full w-full relative overflow-hidden flex justify-center ">
+        </article>
+        <article
+            class="column col-span-1 h-fulll w-full overflow-hidden flex items-center justify-center"
+        >
             <ul class="flex items-center flex-col justify-center gap-4">
-                <li><h3 class="text-indigo-700 text-2xl">Explore</h3></li>
-                <li class=" font-semibold text-xl"><a href="/">Home</a></li>
-                <li class=" font-semibold text-xl"><a href="/about">About</a></li>
-                <li class=" font-semibold text-xl"><a href="/project">Project</a></li>
+                <li><h3 class="text-2xl">Explore</h3></li>
+                <li class="font-semibold text-xl"><a href="/">Home</a></li>
+                <li class="font-semibold text-xl">
+                    <a href="/about">About</a>
+                </li>
+                <li class="font-semibold text-xl">
+                    <a href="/project">Project</a>
+                </li>
             </ul>
-        </div>
-        <div class="h-full w-full relative overflow-hidden flex items-center justify-center flex-col gap-4">
+        </article>
+        <article
+            class="column col-span-1 h-fulll w-full overflow-hidden flex items-center justify-center flex-col gap-6"
+        >
             <SocialLink />
-            <Button size={"lg"}>
-                <a href="/contact" class="text-2xl  font-semibold">Contact</a>
+            <Button id="contact-button" size={"lg"}>
+                <a href="/contact" class="text-2xl font-semibold">Contact</a>
             </Button>
-        </div>
-
-    </div>
-
-</section>
+        </article>
+    </section>
 </footer>
-<style is:global>
-
-    #tiles {
-        height: calc(100% - 1px);
-        width: calc(100% - 1px);
-        position: relative;
-        z-index: 2;
-        display: grid;
-        grid-template-columns: repeat(var(--columns), 1fr);
-        grid-template-rows: repeat(var(--rows), 1fr);
-        gap: 1px;
+<style >
+    #footer:hover {
+        background-position: 0% -10%;
     }
 
-    .tile {
-        cursor: pointer;
-        position: relative;
-    }
-
-   
-
-    .tile:before {
-        background-color: rgb(15, 15, 15);
-        content: "";
-        inset: 0.5px;
-        position: absolute;
-    }
-
-    @media screen and (max-width:425px){
-        #grid-container{
-            height:100dvh;
-            display:flex;
+    @media screen and (max-width: 425px) {
+        #footer {
+            height: 100dvh;
+            display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: space-around;
         }
-
-        #content-footer{
-            display:flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+        #main-footer-text{
+            font-size:1.5rem;
         }
-
-        #content-footer > #footer-text > h1{
-            text-align:center;
+        #contact-button{
+            height:1.2rem;
+        }
+        #contact-button > a {
+            font-size:1rem;
         }
     }
-
-
 </style>

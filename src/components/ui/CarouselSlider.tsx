@@ -7,7 +7,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 
-// Define your tech stack with direct Iconify URLs or use a different approach
+// tech stack
 const techStackData = {
   tech: [
     { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
@@ -94,9 +94,6 @@ export function CarouselSpacing(props: {
 export function TechStackCarousels() {
   return (
     <div className="space-y-8">
-      <div className="text-sm text-gray-600 mb-4">
-        Tech Stack Overview - Using CDN Icons
-      </div>
       <CarouselSpacing title="Programming Languages" items={techStackData.tech} />
       <CarouselSpacing title="Frameworks & Libraries" items={techStackData.frameworks} />
       <CarouselSpacing title="DevOps & Tools" items={techStackData.devops} />
