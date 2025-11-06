@@ -2,10 +2,8 @@
 import { Icon } from "astro-icon/components";
 ---
 
-
-
 <script>
-        let cards = document.getElementById("cards") as HTMLElement;
+    let cards = document.getElementById("cards") as HTMLElement;
     if (!cards) {
         console.error("the element with id cards has not been found");
     }
@@ -22,24 +20,20 @@ import { Icon } from "astro-icon/components";
     });
 </script>
 
-
-<div id="cards"class="flex items-center justify-center flex-wrap gap-2 max-w-[calc(100% - 20px)]">
+<div
+    id="cards"
+    class="flex items-center justify-center flex-wrap gap-2 max-w-[calc(100% - 20px)]"
+>
     <div class="card">
         <div class="card-content">
             <div
                 class="card-content-information h-[90%] w-[90%] relative overflow-hidden flex flex-col justify-start items-center gap-4"
             >
-                <Icon
-                    name={"Software"}
-                    size={"2rem"}
-                    color={"purple"}
-                />
-                <h3 class="text-xl font-bold text-purple-600">
-                    Software developement
-                </h3>
+                <Icon name={"Software"} size={"2rem"} color={"purple"} />
+                <h3 class="text-xl font-bold text-white">developement</h3>
                 <p class="text-white text-lg font-medium text-pretty">
-                    Leveraging innovative software development to turn
-                    your ideas into robust and efficient solutions.
+                    Leveraging innovative tools to create programs representing
+                    your ideas
                 </p>
             </div>
         </div>
@@ -50,13 +44,10 @@ import { Icon } from "astro-icon/components";
                 class="card-content-information h-[90%] w-[90%] relative overflow-hidden flex flex-col justify-start items-center gap-4"
             >
                 <Icon name={"Thunder"} size={"2rem"} color={"yellow"} />
-                <h3 class="text-xl font-bold text-yellow-500">
-                    Full Package
-                </h3>
+                <h3 class="text-xl font-bold text-white">Full Package</h3>
                 <p class="text-white text-lg font-medium text-pretty">
-                    My expertise in coding, problem-solving, and
-                    seamless integration ensures exceptional solutions
-                    in the realm of software development.
+                    My skills in coding, problem-solving , social connection ,
+                    and languages ensures exceptional solutions
                 </p>
             </div>
         </div>
@@ -67,12 +58,13 @@ import { Icon } from "astro-icon/components";
                 class="card-content-information h-[90%] w-[90%] relative overflow-hidden flex flex-col justify-start items-center gap-4"
             >
                 <Icon name={"Computer"} size={"2rem"} color={"green"} />
-                <h3 class="text-xl font-bold text-green-600">
-                    Full Stack Development
+                <h3 class="text-xl font-bold text-white">
+                    Using the right tool
                 </h3>
                 <p class="text-white text-lg font-medium text-pretty">
-                    Building powerful, scalable solutions that transform
-                    ideas into reality through cutting-edge technology
+                    Through research and connections made, I ensure that the
+                    right one is chosen for the right task at the most precise
+                    moment.
                 </p>
             </div>
         </div>
@@ -82,25 +74,19 @@ import { Icon } from "astro-icon/components";
             <div
                 class="card-content-information h-[90%] w-[90%] relative overflow-hidden flex flex-col justify-start items-center gap-4"
             >
-                <Icon
-                    name={"Languages"}
-                    size={"2rem"}
-                    color={"blue"}
-                />
-                <h3 class="text-xl font-bold text-green-600">
+                <Icon name={"Languages"} size={"2rem"} color={"blue"} />
+                <h3 class="text-xl font-bold text-white">
                     Multilingual Expertise
                 </h3>
                 <p class="text-white text-lg font-medium text-pretty">
-                    Breaking barriers and fostering connections through
-                    fluency in French, English, and Arabic, enabling
-                    seamless communication and collaboration across the
-                    globe
+                    enabling seamless communication and collaboration across the
+                    globe establishing connections through fluency in French,
+                    English, and Arabic
                 </p>
             </div>
         </div>
     </div>
 </div>
-
 
 <style>
     :root {
@@ -148,7 +134,7 @@ import { Icon } from "astro-icon/components";
     .card::before {
         background: radial-gradient(
             800px circle at var(--mouse-x) var(--mouse-y),
-            rgba(255, 255, 255, 0.06),
+            rgba(255, 5, 5, 0.082),
             transparent 40%
         );
         z-index: 3;
@@ -157,7 +143,7 @@ import { Icon } from "astro-icon/components";
     .card::after {
         background: radial-gradient(
             600px circle at var(--mouse-x) var(--mouse-y),
-            rgba(255, 255, 255, 0.4),
+            rgba(255, 5, 5, 0.274),
             transparent 40%
         );
         z-index: 1;
@@ -192,7 +178,7 @@ import { Icon } from "astro-icon/components";
         #about-me-button > h1 {
             font-size: 1rem;
         }
-        #cards{
+        #cards {
             display: flex;
             align-items: center;
             justify-content: center;

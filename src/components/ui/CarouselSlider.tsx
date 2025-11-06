@@ -27,13 +27,22 @@ const techStackData = {
     { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
     { name: "GitLab", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg" },
     { name: "Nginx", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" },
+    { name: "Supabase", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg" },
+
+
+  ],
+  Workflow: [
+    { name: "VS Code", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
+    { name: "Neovim", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/neovim/neovim-original.svg" },
+    { name: "tmux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tmux/tmux-original.svg" },
   ]
+
 }
 
 // Single carousel component
-export function CarouselSpacing(props: { 
-  title: string, 
-  items: Array<{name: string, icon: string}> 
+export function CarouselSpacing(props: {
+  title: string,
+  items: Array<{ name: string, icon: string }>
 }) {
   if (props.items.length === 0) {
     return (
@@ -56,9 +65,9 @@ export function CarouselSpacing(props: {
           {props.items.map((item, index) => (
             <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/3">
               <div className="p-1">
-                <Card>
+                <Card className="">
                   <CardContent className="flex aspect-square items-center justify-center p-6 flex-col">
-                    <img 
+                    <img
                       src={item.icon}
                       alt={item.name}
                       className="w-12 h-12 mb-2 object-contain"
@@ -97,6 +106,8 @@ export function TechStackCarousels() {
       <CarouselSpacing title="Programming Languages" items={techStackData.tech} />
       <CarouselSpacing title="Frameworks & Libraries" items={techStackData.frameworks} />
       <CarouselSpacing title="DevOps & Tools" items={techStackData.devops} />
+      <CarouselSpacing title="workflow" items={techStackData.Workflow} />
+
     </div>
   );
 }

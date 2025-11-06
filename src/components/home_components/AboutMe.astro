@@ -1,7 +1,6 @@
 ---
-import Cards from "../widgets/about_me_cards/Cards.astro"
+import Cards from "../widgets/about_me_cards/Cards.astro";
 ---
-
 
 <section class="h-auto w-full relative overflow-hidden">
     <div class="h-36 w-full overflow-hidden">
@@ -9,17 +8,16 @@ import Cards from "../widgets/about_me_cards/Cards.astro"
             id="about-me-introduction"
             class="h-full w-[95%] mx-auto flex items-center justify-between"
         >
-            <p class="text-xl  text-balance">
-                I craft tailored solutions, pushing boundaries with every <br />
-                project and maintaining a steadfast commitment to delivering <br
-                />
-                excellence.
+            <p class="text-xl text-balance">
+                I forge custom innovations, <br />
+                tailored to each vision, <br />
+                with unwavering devotion
             </p>
             <div
                 id="about-me-button"
                 class="bg-black text-white dark:bg-white dark:text-black h-12 w-auto px-8 rounded-xl border-[1px] border-gray-600 box-shadow flex items-center justify-center"
             >
-                <h1 class="text-xl ">
+                <h1 class="text-xl font-semibold">
                     <a href="/about">Who I Am</a>
                 </h1>
             </div>
@@ -27,7 +25,7 @@ import Cards from "../widgets/about_me_cards/Cards.astro"
     </div>
 
     <div id="about-me-intro-for-cards" class="h-auto w-full relative py-4">
-        <h1 class="text-purple-600 text-4xl text-center font-bold">ABOUT ME</h1>
+        <h1 class="text-4xl text-center font-bold">ABOUT ME</h1>
     </div>
     <div class="h-auto w-full relative flex items-center justify-center">
         <Cards />
@@ -45,7 +43,6 @@ import Cards from "../widgets/about_me_cards/Cards.astro"
             rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     }
 
-
     @media screen and (max-width: 768px) {
         #about-me-introduction > p {
             font-size: 1.25rem;
@@ -61,7 +58,6 @@ import Cards from "../widgets/about_me_cards/Cards.astro"
         #about-me-button > h1 {
             font-size: 1rem;
         }
-
     }
 
     @media screen and (max-width: 425px) {

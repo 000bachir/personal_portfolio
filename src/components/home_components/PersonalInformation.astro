@@ -3,7 +3,6 @@
  * TODO : adding responsive before production
  */
 
-
 import { Icon } from "astro-icon/components";
 import SocialLink from "../widgets/SocialLink.astro";
 ---
@@ -40,7 +39,13 @@ import SocialLink from "../widgets/SocialLink.astro";
                 duration: 1.2,
                 stagger: 0.75,
                 color: () => {
-                    let colors = ["blue", "purple", "green"];
+                    let colors = [
+                        "#dc2f02",
+                        "#e85d04",
+                        "#6a040f",
+                        "#9d0208",
+                        "#d00000",
+                    ];
                     return colors[Math.floor(Math.random() * colors.length)];
                 },
             },
@@ -52,131 +57,145 @@ import SocialLink from "../widgets/SocialLink.astro";
 <section class="h-auto w-full relative overflow-hidden">
     <div
         id="scroll_trigger_animation"
-        class=" h-32 w-full relative overflow-hidden border-b-[1px] border-gray-600"
+        class="h-32 w-full relative overflow-hidden border-b-[1px] border-gray-600"
     >
         <div
             id="wrapper"
-            class=" h-full w-[95%] mx-auto relative overflow-hidden flex items-center justify-between"
+            class="h-full w-[95%] mx-auto relative overflow-hidden flex items-center justify-between"
         >
-            <p class="text-xl ">
-                // design , code <br />
-                // build software
+            <p class="text-xl">
+                // executing , operating <br />
+                // building
             </p>
 
             <SocialLink />
 
             <div
                 id="gmail-link"
-                class="h-16 w-auto px-2 py-2 rounded-2xl overflow-hidden flex items-center gap-4 bg-gray-950 relative "
+                class="h-16 w-auto px-2 py-2 rounded-2xl overflow-hidden flex items-center gap-4 relative"
             >
-                <Icon name="Gmail" size={"1rem"} color={"white"} />
-                <span class="text-lg font-semibold text-white">peakdev698@gmail.com</span>
+                <Icon
+                    name="Gmail"
+                    size={"1.5rem"}
+                    class={"dark:text-white text-black"}
+                />
+                <span class="text-lg font-semibold dark:text-white text-black"
+                    >peakdev698@gmail.com</span
+                >
             </div>
         </div>
     </div>
 
-    <div id="main-text-container" class="h-96 w-full relative overflow-hidden grid grid-cols-3">
-        <div id="text-with-effect" class=" col-span-2 relative overflow-hidden">
+    <div
+        id="main-text-container"
+        class="h-96 w-full relative overflow-hidden grid grid-cols-3"
+    >
+        <div id="text-with-effect" class="col-span-2 relative overflow-hidden">
             <div
                 id="text-wrapper"
                 class="h-full w-[95%] mx-auto flex items-center justify-center"
             >
                 <h1
-                    class="text-lg sm:text-xl md:text-2xl lg:text-4xl font-light text-primarytext leading-relaxed "
+                    class="text-lg sm:text-xl md:text-2xl lg:text-4xl leading-relaxed"
                 >
-                    I may not be the best in design😅, but <span class="word"
-                        >programming skills</span
-                    >,
-                    <span class="word">functional precision</span>, and
-                    interactive expertise sets me apart in the <span
-                        class="word">tech world</span
-                    >.
+                    Work shapes my hands; <span class="word"
+                        >purpose guides my mind</span
+                    > —
+                    <span class="word">versatile</span>, <span class="word"
+                        >resilient</span
+                    >, and
+                    <span class="word">built to adapt</span>.
                 </h1>
             </div>
         </div>
-        <div id="text-without-effect" class=" col-span-1 h-full w-full ">
+        <div id="text-without-effect" class="col-span-1 h-full w-full">
             <div
                 id="wrapper-small-text"
                 class="h-full w-[95%] mx-auto flex items-center justify-center"
             >
-                <p class=" text-lg px-8 text-pretty">
-                    Driving excellence in the digital world. Together, we build
-                    a future of possibilities, delivering results and pushing
-                    the boundaries of innovation.
+                <p class="text-lg px-8 text-pretty leading-relaxed">
+                    Beyond roles or titles, Driven by purpose and grit, what
+                    needs to done has to be done
                 </p>
             </div>
         </div>
     </div>
 
     <div class="h-28 w-full relative border-b-[1px] border-gray-600">
-        <div id="catchy-phrase-wrapper" class="h-full w-[95%] relative overflow-hidden mx-auto flex items-center justify-between">
-            <h1 class="text-4xl text-orange-500 font-semibold">
-                Shaping Tomorrow <br>
-                Building Innovation
+        <div
+            id="catchy-phrase-wrapper"
+            class="h-full w-[95%] relative overflow-hidden mx-auto flex items-center justify-between"
+        >
+            <h1 class="text-4xl font-semibold">
+                Shaping Tomorrow <br />
+                By Just Doing it
             </h1>
-            <div class="h-auto aspect-square rounded-full overflow-hidden flex items-center justify-center">
-                <Icon name="Avatar" size="3rem" />
+            <div
+                class="h-full aspect-square rounded-full overflow-hidden flex items-center justify-center"
+            >
+                <img
+                    src="/images/pixel_art_dev.png"
+                    alt="User's profile avatar"
+                    loading="lazy"
+                    class="h-full w-full"
+                />
             </div>
         </div>
     </div>
 </section>
 
-
 <style>
-    @media screen and (max-width:768px) {
-
+    @media screen and (max-width: 768px) {
         #wrapper > p {
-            font-size:1rem;
+            font-size: 1rem;
         }
 
-        #gmail-link{
-            height:3rem;
+        #gmail-link {
+            height: 3rem;
         }
-        #gmail-link > span{
-            font-size:1rem;
+        #gmail-link > span {
+            font-size: 1rem;
         }
-
     }
 
-
-    @media screen and (max-width:425px){
-        #main-text-container{
+    @media screen and (max-width: 425px) {
+        #main-text-container {
             display: flex;
-            flex-direction:column;
+            flex-direction: column;
         }
-        #text-with-effect , #text-without-effect{
-            height:100%;
-            width:100%;
+        #text-with-effect,
+        #text-without-effect {
+            height: 100%;
+            width: 100%;
             border-bottom:;
         }
 
         #text-with-effect > #text-wrapper > h1 {
-            text-align:center;
-            text-wrap:balance;
+            text-align: center;
+            text-wrap: balance;
         }
 
-        #text-without-effect > #wrapper-small-text > p{
-            text-align:center;
-            text-wrap:balance;
+        #text-without-effect > #wrapper-small-text > p {
+            text-align: center;
+            text-wrap: balance;
         }
 
-        #scroll_trigger_animation{
-            height:auto;
-            width:100%;
-            padding:1rem 0rem;
+        #scroll_trigger_animation {
+            height: auto;
+            width: 100%;
+            padding: 1rem 0rem;
         }
 
         #scroll_trigger_animation > #wrapper {
-            display:flex;
+            display: flex;
             align-items: center;
-            justify-content:center;
-            flex-direction:column;
-            gap:1rem;
+            justify-content: center;
+            flex-direction: column;
+            gap: 1rem;
         }
 
         #catchy-phrase-wrapper > h1 {
-            font-size:1.5rem;
+            font-size: 1.5rem;
         }
-
     }
 </style>

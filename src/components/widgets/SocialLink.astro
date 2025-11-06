@@ -4,40 +4,26 @@ import { Icon } from "astro-icon/components";
 ---
     <div
         id="social-links"
-        class="h-16 w-auto px-4 py-4 rounded-2xl overflow-hidden flex items-center gap-4 bg-gray-950 relative"
+        class="h-16 w-auto px-4 py-4 rounded-2xl overflow-hidden flex items-center gap-4 relative"
         >
         <a class="block z-10" href="https://github.com/000bachir">
-            <Icon name="Github" size={ "2rem"} color={"white"} id="github" />
+            <Icon name="Github" size={ "2rem"} id="github" class={"dark:text-white text-black"} />
         </a>
         <a
             class="block z-10"
             href="https://www.linkedin.com/in/seridi-mohammed-98a70423b/"
         >
-            <Icon name="Linkedin" size={"2rem"} color={"white"} id="linkedin" />
+            <Icon name="Linkedin" size={"2rem"} id="linkedin" class={"dark:text-white text-black"} />
         </a>
     </div>
 
 <style>
-    #social-links::before {
-        position: absolute;
-        content: "";
-        height: 100%;
-        width: 100%;
-        border-radius: inherit;
-        background-image: radial-gradient(
-            rgba(255, 255, 255, 0.2) 8%,
-            transparent 8%
-        );
-        background-position: 0% 0%;
-        background-size: 5vmin 5vmin;
-        z-index: 1;
-    }
 
     @media screen and (max-width:768px){
         #social-links{
             height:3rem;
         }
-        #social-links > #x , #insta  ,#facebook , #linkedin , #github{
+        #social-links > #linkedin , #github{
             font-size:3rem;
         }
     }

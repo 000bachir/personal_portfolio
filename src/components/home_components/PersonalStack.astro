@@ -1,5 +1,5 @@
 ---
-import {TechStackCarousels} from "../ui/CarouselSlider"
+import { TechStackCarousels } from "../ui/CarouselSlider";
 ---
 
 <section
@@ -8,26 +8,24 @@ import {TechStackCarousels} from "../ui/CarouselSlider"
     <div class="h-36 w-full mt-12">
         <h1
             id="into-text-for-tech-stack"
-            class="text-4xl font-semibold max-w-7xl text-center text-pretty mx-auto"
+            class="text-4xl font-semibold max-w-7xl text-center text-balance leading-relaxed mx-auto"
         >
-            I try to stay as versatile as possible, exploring different paths
-            and tools to solve problems 😅
+            Until further development, these are the tools and languages I am
+            comfortable with
         </h1>
     </div>
     <div
-        class=" slider h-auto py-12 w-full overflow-hidden relative flex items-center justify-center flex-col mb-12"
+        class="slider h-auto py-12 w-full overflow-hidden relative flex items-center justify-center flex-col mb-12"
     >
         <!--Pass the processed data to your component -->
         <TechStackCarousels client:idle />
     </div>
 </section>
 
-
 <style>
-    @media screen and (max-width:425px){
-        #into-text-for-tech-stack{
-            font-size:1.8rem;
+    @media screen and (max-width: 425px) {
+        #into-text-for-tech-stack {
+            font-size: 1.8rem;
         }
     }
-
 </style>
