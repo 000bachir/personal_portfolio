@@ -2,6 +2,13 @@
 /**
  *!lib import
  */
+
+
+/**
+ *TODO : fix the bug where the navbar link stops working after page navigation in the sidebar 
+ */
+
+
 import { Icon } from "astro-icon/components";
 /**
  *!local import
@@ -37,6 +44,7 @@ import "../../styles/global.css";
     });
   }
   toggleSidebar();
+  document.addEventListener("astro:page-load" , toggleSidebar);
 </script>
 
 <header class="h-auto w-full border-b-[1px] dark:bg-background-for-dark-mode">
@@ -113,7 +121,7 @@ import "../../styles/global.css";
         <ModeToggle client:load />
       </div>
       <Button size={"lg"} variant={"ghost"} id="open-btn">
-        <Icon name={"Bars"} size={"2rem"} color={"white"} />
+        <Icon name={"Bars"} size={"2rem"} color={"dark:text-white text-black"} />
       </Button>
     </nav>
   </div>
@@ -127,16 +135,16 @@ import "../../styles/global.css";
 >
   <div
     id="side-bar-container"
-    class="side-bar-background h-[95%] w-[95%] backdrop:hidden mx-auto border rounded-xl flex items-center justify-center"
+    class="side-bar-background h-[95%] w-[95%] backdrop:hidden mx-auto border rounded-xl flex items-center justify-center dark:bg-white bg-black"
   >
     <div id="side-bar-wrapper" class="h-[95%] w-[90%] mx-auto grid grid-rows-4">
       <div class="row-span-1 h-full w-full flex items-center justify-between py-4">
-        <a class="flex items-center gap-2" href="/">
+        <a class="flex items-center gap-2 " href="/">
           <Icon name="Home" />
-          Home
+           <p class="dark:text-black text-white font-semibold">Home</p>
         </a>
         <Button size={"sm"} variant={"ghost"} id="close-btn">
-          <Icon name={"Cross"} color={"red"} />
+          <Icon name={"Cross"} class={"dark:text-black text-white"} />
         </Button>
       </div>
       <div
@@ -144,7 +152,7 @@ import "../../styles/global.css";
       >
         <a class="flex items-center gap-2" href="/project">
           <Icon name="Project" />
-          Project
+          <p class="dark:text-black text-white font-semibold">Project</p>
         </a>
       </div>
       <div
@@ -152,7 +160,7 @@ import "../../styles/global.css";
       >
         <a class="flex items-center gap-2" href="/about">
           <Icon name="About" />
-          About
+          <p class="dark:text-black text-white font-semibold">About</p>
         </a>
       </div>
       <div
@@ -160,7 +168,8 @@ import "../../styles/global.css";
       >
         <a class="flex items-center gap-2" href="/resume">
           <Icon name="Languages" />
-          Resume
+          
+          <p class="dark:text-black text-white font-semibold">Resume</p>
         </a>
       </div>
       <div
@@ -168,7 +177,7 @@ import "../../styles/global.css";
       >
         <a class="font-semibold flex items-center gap-2" href="/contact">
           <Icon name="Contact" />
-          <span>Contact</span>
+          <p class="dark:text-black text-white font-semibold">Contact</p>
         </a>
       </div>
     </div>
